@@ -1,0 +1,18 @@
+/**
+ |-------------------------------------
+ |	File aboutwebfile BASE FILE		  |
+ |-------------------------------------
+ |	
+ |	@File aboutwebfile.txt
+ |      
+ |	@version 1.0
+ |	
+ |	@copyright LuosDesign.com - 2012
+ |  @definition: 
+ |
+ |
+ |here you will find various default layouts in the MVC, you can also add your own layout with your own files  |css, js or any other files your layout integrate q
+ |
+ |
+ |aqui encontraras los distintos layouts por defecto en el MVC, ademas podras agregar tus propios layout con sus  |propios archivos css, js o cualquier otro tipo de archivos q integren tu layout
+**/

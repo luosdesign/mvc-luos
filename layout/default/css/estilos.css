@@ -1,0 +1,280 @@
+﻿/**
+ |-------------------------------------
+ |	File estilos                 	  |
+ |-------------------------------------
+ |	@package css
+ |	@File estilos.php
+ |	@version 1.0
+ |	@copyright LuosDesign.com - 2012
+ |  @definition: load objects
+ **/
+
+body{
+	margin: 0;
+	background: #9ea319;
+	font-family: Arial, sans-serif;
+}
+
+h1,h2,h3,h4 {
+	text-shadow: 0 2px 0 #FFFFFF;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px silver solid;
+}
+
+td, th {
+    padding: 3px 6px;
+}
+
+td {
+    text-align: left;
+    vertical-align: top;
+}
+
+ul {
+	list-style: circle;
+}
+
+a {
+	color: #045FB4;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+/*CSS MAIN*/
+#main{
+	position: relative;
+	margin: 0 auto 0 auto;
+	width: 1000px;
+	padding-top: 20px;
+}
+/*CSS HEADER*/
+#header{
+	width: 1000px;
+	height: 100px;
+}
+
+#logo{
+
+	float: right;
+	height: 80px;
+    margin: 0;
+	padding: 10px 10px 10px 20px;
+    width: 270px;
+}
+
+#logo h1{
+	color: #FFFFFF;
+	line-height: 60px;
+	text-shadow: 0 0 0;
+	margin: 0;
+}
+
+#menu{
+	width: auto;
+	height: 50px;
+	float: left;
+	margin: 0 0 0 0px;
+	padding: 10px;
+}
+
+
+#top_menu{
+    float: left;
+	height: 60px;
+    
+    padding-right: 30px;
+	position: relative;
+	width: auto;
+	margin: 0 0 0 0;
+	color: white;
+	overflow: hidden;
+	background: url(../img/menu_background_1.jpg) repeat-x;
+	border-radius: 5px 5px 0 0;
+    z-index: 0;
+}
+
+#top_menu ul{
+	line-height: 60px;
+	margin: 0;
+    margin-bottom: -100px;
+	color: white;
+}
+
+#top_menu ul li{
+	display: inline;
+	margin-left: 5px;
+	padding-left: 5px;
+	border-left: 1px dashed;
+	color: white;
+}
+
+ #top_menu ul li:first-child {
+    border-left:none;
+	padding-left: 0;
+ }
+
+
+#top_menu ul li a{
+	color: #FFFFFF;
+    font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#top_menu ul li a:hover{
+	text-decoration: underline;
+}
+/*CSS CONTENT*/
+#content{
+    background: #999999;
+	color: #6E6E6E;
+    float: left;
+	width: 1000px;
+	padding: 10px;
+	background: white;
+	font-family: "Trebuchet MS", sans-serif;
+	border-radius: 10px 10px 0 0;
+	overflow: hidden;
+    z-index:100;
+}
+
+#content h1, h2 {
+	color: #585553;
+}
+
+
+#footer{
+    float: left;
+    background-color: #FFF;
+    border-top: 1px solid #c7c6c5;
+	color: #585553;
+	width: 1000px;
+	padding:10px;
+	text-align: center;
+}
+
+#top_menu ul li .current{
+	text-decoration: underline;
+}
+
+
+/*CSSS PARA REDES SOCIALES DE COMPARTIR*/  
+    #compartir_redes{
+        margin: 0 auto 100px auto;
+        }
+    #compartir_redes .redes{
+        display:inline-block;
+        margin: 0 0 0 0;
+        vertical-align:top;
+        }
+    #compartir_redes{
+        height: 30px;
+        width: 400px;
+        }
+    #compartir_redes .redes{
+        float: left;
+        height: 30px;
+        margin: 0 0 0 10px;
+        width: auto;
+        }
+          #compartir_redes .fb-comments{
+            margin: 50px 0 0 90px
+            }
+          #compartir_redes .fb-like{
+            display:inline-block;
+            height: 40px; 
+            margin:0 0 0 0;  
+            width: 150px; 
+            }
+          #compartir_redes #LikePluginPagelet{ 
+            display:inline-block; 
+            height: 30px;
+            width: 100px;
+            }
+          #compartir_redes .liketext{
+            margin: 5px 0 5px 0;
+            }
+          #compartir_redes .fb-like{
+            height: 30px;
+            width: 110px;
+            }
+          #compartir_redes span.liketext{
+            font-size: 20px;
+            height: 30px; 
+            
+            }
+          #compartir_redes #f130d9b164{
+            width: 200px;
+            } 
+               #btn{
+                background-color: #9ea319;
+                border: 1px solid #1e741e;
+                border-radius:5px;
+                color:#303123;
+                color: #FFF;
+                cursor: pointer;
+                display: inline-block;
+                margin: 0 0 10px 150px;
+                padding: 10px;
+                text-align: left;
+                width: auto;
+                }
+                
+/*DATAPICKER*/
+
+	th.ui-datepicker-week-end, 
+td.ui-datepicker-week-end { 
+    display: none; 
+}          
+/*FORMULARIOS*/
+fieldset{
+    border: 0px;
+    float: left;
+    font-size: 18px;
+    margin:0 0 0 250px;
+    width: 500px;
+}      
+    fieldset label{
+        float: left;
+        width: 250px;
+    }
+    fieldset input{
+        float: left;
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 150px;
+    }
+    fieldset select{
+        float: left;
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding: 5px;
+        width: auto;
+    }
+    fieldset a{
+        float: left;
+        
+    }
+    
+    #register{
+        margin-left: 150px;
+        text-align: center;
+    }
+    #remember{
+        margin-left: 130px;
+    }
+    #login{
+        margin-left: 170px;
+    }
+    #table{
+        margin: auto;
+    }
