@@ -1,0 +1,33 @@
+  <section id="content_in">
+    
+    <h3 style="color: #ba1616;" class="msn_error">
+                      <?php
+                    
+                    if(isset($this->messageError)){
+                     ?>
+                     <?php  
+                     echo $this->messageError;
+                     ?>
+                     <?php   
+                    }
+                    
+                    ?>
+        </h3>
+  
+    <fieldset id="login">
+        
+     <form action="" method="post" name="form_login" id="form_login">
+        <legend></legend>
+        <label>Usuario</label>
+        <input type="text" name="login" value="<?php if(isset($_POST["valid"])) echo $_POST["login"]; ?>" />
+        <label>Password</label>
+        <input type="password" name="pass" />
+        <input type="hidden" name="valid" value="ok" />
+        <input type="button" title="Loguearme" value="Loguearme" id="btn" onclick="javascript:$('#form_login').submit();" />
+        <label id="register"><a href="<?php echo BASE_URL . "users/register.html" ?>">Reg&iacute;strarme</a></label>
+        <label id="remember"><a href="<?php echo BASE_URL . "users/remember.html" ?>">Recordar Password</a></label>
+        
+     </form>   
+    </fieldset>
+  
+  </section>

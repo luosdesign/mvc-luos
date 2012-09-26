@@ -1,0 +1,59 @@
+  <section id="content_in">
+     <h3 style="color: #ba1616;" class="msn_error">
+                      <?php
+                    
+                    if(isset($this->messageError)){
+                     ?>
+                     <?php  
+                     echo $this->messageError;
+                     ?>
+                     <?php   
+                    }
+                    
+                    ?>
+        </h3>
+  
+    <fieldset>
+       
+     <form action="" method="post" name="form_register" id="form_register">
+        <legend></legend>
+        <label>Nombres:</label>
+        <input type="text" name="nombres" value="<?php if(isset($_POST["valid"])) echo $_POST["nombres"]; ?>" />
+        <label>Apellidos:</label>
+        <input type="text" name="apellidos" value="<?php if(isset($_POST["valid"])) echo $_POST["apellidos"]; ?>" />
+        <label>Documento de Identidad:</label>
+        <input type="text" name="identificacion" value="<?php if(isset($_POST["valid"])) echo $_POST["identificacion"]; ?>" />
+        <label>Telefono:</label>
+        <input type="text" name="telefono" value="<?php if(isset($_POST["valid"])) echo $_POST["telefono"]; ?>" />
+        <label>Correo:</label>
+        <input type="text" name="email" value="<?php if(isset($_POST["valid"])) echo $_POST["email"]; ?>" />
+        <label>Tipo Especialidad:</label>
+        <select id="tipo_cita" name="tipo" onchange="carga_combo('<?php echo BASE_URL . "citas/cargaMedico.html" ?>',$('#tipo_cita').val());">
+            <option value="0">Seleccion un Tipo de Cita</option>
+            <?php  
+            if(isset($this->tipo)):
+                
+                foreach($this->tipo as $key=>$value):
+            ?>
+            <option value="<?php echo $value["id"] ?>"><?php echo $value["especialidad"] ?></option>
+            
+            <?php
+                endforeach;
+            endif;
+            ?>
+            
+        </select>
+        <label>Password</label>
+        <input type="password" name="pass" />
+        <label>Repetir Password</label>
+        <input type="password" name="rpass" />
+        <input type="hidden" name="valid" value="ok" />
+        <div class="msn_resp"></div>
+        <input type="button" title="Agregar Medico" value="Agregar Medico" id="btn" onclick="javascript:validMedic('<?php echo BASE_URL ?>','<?php echo DEFAULT_LAYOUT ?>');" />
+        
+        
+        
+     </form>   
+    </fieldset>
+  
+  </section>

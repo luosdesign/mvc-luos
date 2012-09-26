@@ -1,0 +1,26 @@
+RewriteEngine On
+
+
+ErrorDocument 404 /error/access/4040.html
+ErrorDocument 400 /error/access/4000.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+#RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+RewriteRule ^(.*).html$ index.php?url=$1 [QSA,L]
+
+
+
+#RewriteRule ^$ /home/index.html$1 [R=301,L]
+#RewriteRule ^([^/]*)\.html$ /articulo.php?id=$1 [L]
+#RewriteCond %{THE_REQUEST} ^GET\ .*/index\.(php|html)\ HTTP
+#RewriteRule ^(.*)index\.(php|html)$ /$1 [R=301,L]
+
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{REQUEST_URI} \.php|\.ini|\.xml [NC]
+  RewriteCond %{REQUEST_URI} \/models\/ [OR]
+  RewriteCond %{REQUEST_URI} \/controllers\/ [OR]
+  RewriteCond %{REQUEST_URI} \/views\/
+  RewriteRule ^(.*)$ index.php [R=404]
+

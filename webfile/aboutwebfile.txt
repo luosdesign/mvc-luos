@@ -1,0 +1,18 @@
+/**
+ |-------------------------------------
+ |	File aboutwebfile BASE FILE		  |
+ |-------------------------------------
+ |	
+ |	@File aboutwebfile.txt
+ |      
+ |	@version 1.0
+ |	
+ |	@copyright LuosDesign.com - 2012
+ |  @definition: 
+ |
+ |
+ |WebFile is the directory where you can add js files, images, css and other files or directories that can be  | |accessed from any layout enabled
+ |
+ |
+ |webfile es el directorio donde podras agregar archivos js, imagenes, css y demas archivos o directorios que  |   |podran ser accedidos desde cualquier layout habilitado
+**/

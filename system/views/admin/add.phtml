@@ -1,0 +1,47 @@
+            
+            
+            <section id="content_in">
+              
+                 <h2>Agregar campeonato</h2>
+                 
+                <h3 style="color: #ba1616;" class="msn_error">
+                  <?php
+                
+                if(isset($this->messageError)){
+                 ?>
+                 <?php  
+                 echo $this->messageError;
+                 ?>
+                 <?php   
+                }
+                
+                ?>
+                 </h3>
+               
+               <fieldset> 
+               
+               <form id="form_add" method="post" action="">
+
+                    <legend></legend>
+                    <label>Nombre campeonato:</label>
+                    <input type="text" name="nombre_campeonato" value="<?php if(isset($_POST["nombre_campeonato"])): echo $_POST["nombre_campeonato"]; endif; ?>" />
+                    
+                    
+                    <label>Fecha Inicio</label>
+                    <input type="text" name="fecha_ini" class="datepicker" readonly="readOnly" value="<?php if(isset($_POST["fecha_ini"])): echo $_POST["fecha_ini"]; endif; ?>" />
+                   
+                    <label>Fecha Fin</label>
+                   <input type="text" name="fecha_fin" class="datepicker" readonly="readOnly" value="<?php if(isset($_POST["fecha_fin"])): echo $_POST["fecha_fin"]; endif; ?>"/>
+                    
+                                      
+                    <input type="hidden" value="ok" name="valid" />
+                    <label></label>
+                    <input type="button" id="btn" value="Guardar" title="Guardar" onclick="javascript:form_add.submit();" />
+                    
+                
+                </form>
+               </fieldset>
+           
+                       
+            </section>
+            

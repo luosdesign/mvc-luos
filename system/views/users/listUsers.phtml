@@ -1,0 +1,193 @@
+     
+            <h2>Lista de Usuarios</h2>
+                <?php
+                
+                if(isset($this->message)){
+                 ?>
+                 <h2>
+                 <?php  
+                 echo $this->message;
+                 ?>
+                 </h2>
+                 <?php   
+                }
+           
+                ?>   
+            <section id="content_in">
+            
+                  <a href="<?php echo BASE_URL."users/addUser.html" ?>" class="add_button"><span>Agregar usuario</span></a>
+                <?php
+                echo $this->html_helper->open_tag('center');
+                echo $this->html_helper->open_tag('table',array("id"=>"table","class"=>"sortable"));
+                  echo $this->html_helper->open_tag('thead');  
+                    echo $this->html_helper->open_tag('tr',array("class"=>"tr_class"));
+                        
+                        
+                        
+                         echo $this->html_helper->open_tag('th',array("class"=>"tr_class"));
+                            echo "Nombre Usuario";
+                         echo $this->html_helper->close_tag('th',array("class"=>"tr_class"));
+                         
+                         echo $this->html_helper->open_tag('th',array("class"=>"tr_class"));
+                            echo "Identificacion";
+                         echo $this->html_helper->close_tag('th',array("class"=>"tr_class"));
+                         
+                         echo $this->html_helper->open_tag('th',array("class"=>"tr_class"));
+                            echo "Email";
+                         echo $this->html_helper->close_tag('th',array("class"=>"tr_class"));
+                         
+                         echo $this->html_helper->open_tag('th',array("class"=>"tr_class"));
+                            echo "Estado";
+                         echo $this->html_helper->close_tag('th',array("class"=>"tr_class"));
+                         
+                         echo $this->html_helper->open_tag('th',array("class"=>"tr_class"));
+                            echo "Fecha Registro";
+                         echo $this->html_helper->close_tag('th',array("class"=>"tr_class"));
+                         
+                         echo $this->html_helper->open_tag('th',array("class"=>"tr_class"));
+                            echo "Habilitar/DesHabilitar";
+                         echo $this->html_helper->close_tag('th',array("class"=>"tr_class"));
+                         
+                       
+                         echo $this->html_helper->open_tag('th',array("class"=>"tr_class"));
+                            echo "Eliminar";
+                         echo $this->html_helper->close_tag('th',array("class"=>"tr_class"));
+                         
+                      echo $this->html_helper->close_tag('tr',array("class"=>"tr_class"));
+                   echo $this->html_helper->close_tag('thead');   
+                
+                echo $this->html_helper->open_tag('tbody');
+                if(isset($this->data) && count($this->data)): 
+                  
+                  
+               
+                    foreach($this->data as $key=>$value):
+               
+                ?>
+                
+                <?php
+                
+                    
+                     echo $this->html_helper->open_tag('tr',array("class"=>"tr_class"));
+                     
+               
+                     
+                         echo $this->html_helper->open_tag('td',array("class"=>"tr_class"));
+                            echo $this->methods->cutWord($value["nombres"]. " " .$value["apellidos"],"25");
+                         echo $this->html_helper->close_tag('td');
+                         
+                         echo $this->html_helper->open_tag('td',array("class"=>"tr_class"));
+                            echo $this->methods->cutWord($value["identificacion"],"25");
+                         echo $this->html_helper->close_tag('td');
+                         
+                         echo $this->html_helper->open_tag('td',array("class"=>"tr_class"));
+                            echo $value["email"];
+                         echo $this->html_helper->close_tag('td');
+                         
+                         echo $this->html_helper->open_tag('td',array("class"=>"tr_class"));
+                            
+                            if($value["estado"]=="1"){
+                                echo"Habilitado";
+                            }else{
+                                echo"DesHabilitado";
+                            }
+                            
+                         echo $this->html_helper->close_tag('td');
+                         
+                                      
+                         echo $this->html_helper->open_tag('td',array("class"=>"tr_class"));
+                            echo $value["fecha_ingreso"];
+                         echo $this->html_helper->close_tag('td');
+                         
+                         echo $this->html_helper->open_tag('td',array("class"=>"tr_class"));
+                            if($value["estado"]=="1"){
+                                
+                              echo $this->html_helper->open_tag('a',array("href"=>BASE_URL."users/listUsers/habUsers/".$value["id_usuario"].".html"));  
+                                echo"Deshabilitar";
+                              echo $this->html_helper->close_tag('a');  
+                                
+                            }else{
+                                
+                                echo $this->html_helper->open_tag('a',array("href"=>BASE_URL."users/listUsers/habUsers/".$value["id_usuario"].".html")); 
+                                echo"Habilitar";
+                                echo $this->html_helper->close_tag('a');
+                                
+                            }
+                         echo $this->html_helper->close_tag('td');
+                         
+                                                   
+                         
+                         echo $this->html_helper->open_tag('td',array("class"=>"tr_class"));
+                           
+                           $url=BASE_URL."users/listUsers/elimUsers/".$value["id_usuario"].".html";
+                           
+                           ?>
+                           <a href="javascript:void(0);" onclick="javascript:validElim('<?php echo $url ?>');">
+                           Eliminar
+                           </a> 
+                            <?php
+                            //echo $this->html_helper->open_tag('a',array("href"=>"javascript:void(0);","onclick"=>"javascript:validElim();"));
+                            //echo "Eliminar";
+                           //echo $this->html_helper->close_tag('a'); 
+                           
+                            
+                         echo $this->html_helper->close_tag('td',array("class"=>"tr_class"));
+                         
+                      echo $this->html_helper->close_tag('tr');
+                    
+                    
+                ?>    
+                  <div id="url" style="display: none;"><?php echo $url; ?></div>  
+                
+                <?php
+                    endforeach;
+                  
+                  
+                    
+                endif; 
+                  echo $this->html_helper->close_tag('tbody');
+                echo $this->html_helper->close_tag('table');
+                ?>
+                <div id="controls">
+            		<div id="perpage">
+            			<select onchange="sorter.size(this.value)">
+            			<option value="5" >5</option>
+            				<option value="10" selected="selected">10</option>
+            				<option value="20">20</option>
+            				<option value="50">50</option>
+            				<option value="100">100</option>
+            			</select>
+            			<span>Registros Por Pagina</span>
+            		</div>
+            		<div id="navigation">
+            			<img src="<?php echo $_layoutParams['ruta_img']; ?>first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
+            			<img src="<?php echo $_layoutParams['ruta_img']; ?>previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
+            			<img src="<?php echo $_layoutParams['ruta_img']; ?>next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
+            			<img src="<?php echo $_layoutParams['ruta_img']; ?>last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
+            		</div>
+            		<div id="text">Vista Pagina <span id="currentpage"></span> de <span id="pagelimit"></span></div>
+            	</div>
+            	<script src="<?php echo $_layoutParams['ruta_js']; ?>script_table_sorter.js" type="text/javascript"></script>
+            	<script type="text/javascript">
+              var sorter = new TINY.table.sorter("sorter");
+            	sorter.head = "head";
+            	sorter.asc = "asc";
+            	sorter.desc = "desc";
+            	sorter.even = "evenrow";
+            	sorter.odd = "oddrow";
+            	sorter.evensel = "evenselected";
+            	sorter.oddsel = "oddselected";
+            	sorter.paginate = true;
+            	sorter.currentid = "currentpage";
+            	sorter.limitid = "pagelimit";
+            	sorter.init("table",1);
+              </script>
+                <?php
+                echo $this->html_helper->close_tag('center');
+                ?>         
+            
+                       
+            </section>
+            
+       
+            

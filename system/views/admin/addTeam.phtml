@@ -1,0 +1,152 @@
+<section id="content_in">
+            
+            <h2>Agregar Equipos</h2>
+            
+            <h3 style="color: #ba1616;" class="msn_error">
+                  <?php
+                
+                if(isset($this->messageError)){
+                 ?>
+                 <?php  
+                 echo $this->messageError;
+                 ?>
+                 <?php   
+                }
+                
+                ?>
+                 </h3>
+                 
+                  <fieldset> 
+               
+               <form id="form_add" method="post" action="">
+
+                    <legend></legend>
+                    <label>Buscar usuarios:</label>
+                    <input type="text" name="search_user" id="search_user" onkeyup="javascript:search_users('<?php echo BASE_URL."admin/searchUsers.html" ?>');"  />
+                    
+                                    
+                
+                </form>
+               </fieldset>
+               
+               <tr>
+                    <td>
+                    <h6>Asigna los usuarios a el equipo a crear maximo 5</h6>
+                    </td>
+                  </tr>	
+               <table cellpadding="0" cellspacing="0" border="0" id="table" class="sortable" style="width: 100%;">
+                  <thead>
+                  
+                	<tr>
+                		<th width="250" class="head">
+                		Identificacion
+                		</th>
+                		<th width="250" class="head">
+                		Nombres
+                		</th>
+                		<th width="250" class="head">
+                		Apellidos
+                		</th>
+                	
+                		<th>
+                		Asignar
+                		</th>
+                	
+                	</tr>
+                  </thead>	
+                  <tbody>
+                <tr>
+                    <td colspan="4" style="width: 97%;">No se ha encontrado ningun resultado al criterio de busqueda insertado.</td>
+                </tr>
+             
+                  
+                  </tbody>
+                </table>  
+                
+                <div id="controls">
+            		<div id="perpage">
+            			<select onchange="sorter.size(this.value)">
+            			<option value="5">5</option>
+            				<option value="10" selected="selected">10</option>
+            				<option value="20">20</option>
+            				<option value="50">50</option>
+            				<option value="100">100</option>
+            			</select>
+            			<span>Registros Por Pagina</span>
+            		</div>
+            		<div id="navigation">
+            			<img src="<?php echo $_layoutParams['ruta_img']; ?>first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
+            			<img src="<?php echo $_layoutParams['ruta_img']; ?>previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
+            			<img src="<?php echo $_layoutParams['ruta_img']; ?>next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
+            			<img src="<?php echo $_layoutParams['ruta_img']; ?>last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
+            		</div>
+            		<div id="text">Vista Pagina <span id="currentpage"></span> de <span id="pagelimit"></span></div>
+                    
+        	    </div>
+                <script src="<?php echo $_layoutParams['ruta_js']; ?>script_table_sorter.js" type="text/javascript"></script>
+                	
+          
+          <fieldset>
+                
+                <form>
+                
+                <table cellpadding="0" cellspacing="0" border="0" id="table2"  style="width: 100%;" >
+                  <thead>
+                  <tr>
+                    <td>
+                    <h6>Lista de usuarios asignados para nuevo campeonato</h6>
+                    </td>
+                  </tr>	
+                	<tr>
+                		<th width="250" class="nosort">
+                		Identificacion
+                		</th>
+                		<th width="250">
+                		Nombres
+                		</th>
+                		<th width="250">
+                		Apellidos
+                		</th>
+                	
+                		<th>
+                		Asignar
+                		</th>
+                	
+                	</tr>
+                  </thead>	
+                  <tbody>
+                  
+                
+     
+                  </tbody>
+                </table>  
+         
+         <label>Nombre Equipo</label>       
+         <input type="text" name="name_team" id="name_team" />
+         
+         <label>Campeonato</label>
+         <select name="campeonato" id="campeonato">
+         
+            <option value="0">Seleccione un campeonato</option>
+            
+            <?php
+            
+            foreach($this->campeonatos as $key=>$value){
+                
+                ?>
+                <option value="<?php echo $value["id"];?>"><?php echo $this->methods->cutWord($value["nombre_campeonato"],"30");?></option>
+                
+                <?php
+                
+            }
+            
+            
+            ?>
+            
+         </select>
+         <input type="button" value="Registrar Equipo" onclick="javascript:valid_register_team('<?php echo BASE_URL."admin/register_team.html"  ?>');" />
+         </form>
+         
+         </fieldset>        
+                 
+</section>                 

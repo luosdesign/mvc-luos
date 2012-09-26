@@ -1,0 +1,43 @@
+  <section id="content_in">
+     <h3 style="color: #ba1616;" class="msn_error">
+                      <?php
+                    
+                    if(isset($this->messageError)){
+                     ?>
+                     <?php  
+                     echo $this->messageError;
+                     ?>
+                     <?php   
+                    }
+                    
+                    ?>
+        </h3>
+  
+    <fieldset>
+       
+     <form action="" method="post" name="form_register" id="form_register">
+        <legend></legend>
+        <label>Nombres:</label>
+        <input type="text" name="nombres" value="<?php if(isset($_POST["valid"])) echo $_POST["nombres"]; ?>" />
+        <label>Apellidos:</label>
+        <input type="text" name="apellidos" value="<?php if(isset($_POST["valid"])) echo $_POST["apellidos"]; ?>" />
+        <label>Documento de Identidad:</label>
+        <input type="text" name="identificacion" value="<?php if(isset($_POST["valid"])) echo $_POST["identificacion"]; ?>" />
+        <label>Telefono:</label>
+        <input type="text" name="telefono" value="<?php if(isset($_POST["valid"])) echo $_POST["telefono"]; ?>" />
+        <label>Correo:</label>
+        <input type="text" name="email" value="<?php if(isset($_POST["valid"])) echo $_POST["email"]; ?>" />
+        
+        <label>Password</label>
+        <input type="password" name="pass" />
+        <label>Repetir Password</label>
+        <input type="password" name="rpass" />
+        <input type="hidden" name="valid" value="ok" />
+        <input type="button" title="Registrarse" value="Registrarse" id="btn" onclick="javascript:$('#form_register').submit();" />
+        <label id="login"><a href="<?php echo BASE_URL . "users/login.html" ?>">Logueo</a></label>
+        
+        
+     </form>   
+    </fieldset>
+  
+  </section>
