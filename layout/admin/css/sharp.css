@@ -1,0 +1,171 @@
+body {
+	color: #424242;	
+}
+
+h1, h2, p {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 50px;
+	margin-bottom: 5px;
+}
+
+h2 { 
+	font-size: 24px;
+	font-style: italic;
+}
+
+p { font-size: 14px; }
+
+div#mainContent {
+	width: 940px;
+	padding: 0 35px;
+	margin: 0 auto;
+	background: url(../images/bg.png) repeat-y center top;
+}
+
+/* ini aside */
+aside {
+	width: 220px; 
+	float: left; 
+	margin-top: 50px;
+}
+
+ul#menu li {
+	width: 200px;
+	float: left;
+	padding: 5px 10px;
+	border-bottom: 1px;
+	margin-bottom: 1px;
+	background: #e4e4e4;
+}
+ul#menu li:hover { background-color: #424242; }
+
+ul#menu li a {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 14px;
+	color: #424242;
+	text-decoration: none;
+}
+ul#menu li:hover a { color: #FFF; }
+
+/* fin aside */
+footer {
+	width: 940px;
+	margin: 0 auto;
+	padding: 20px 35px;
+	background: url(../images/bg-footer.png) no-repeat center top;
+}
+
+/* login */
+div#login {
+	width: 230px;
+	margin: 180px auto;
+}
+
+input.login {
+	width: 228px;
+	font-size: 12px;
+	font-family: 'PT Sans', sans-serif;
+	color: #424242;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #e6e6e6;
+}
+
+input.loginBoton {
+	width: 120px;
+	font-size: 12px;
+	font-family: 'PT Sans', sans-serif;
+	color: #424242;
+	padding: 10px;
+	border: 0;
+	background-color: #e6e6e6;	
+}
+input.loginBoton:hover {
+	background-color: #424242;
+	color: #FFF;
+	cursor: pointer;
+}
+/* login */
+
+/* section */
+section {
+	width: 700px;
+	margin-left: 20px;
+	float: right;	
+}
+
+div.sep { height: 1px; margin: 10px 0; background: #424242; }
+
+div#sectionHelp {
+	width: 620px;
+	height: 70px;
+	padding: 5px 10px 5px 70px;
+	margin-bottom: 10px;
+	background: url(../images/info.png) top left no-repeat #e6e6e6;
+}
+
+div.creadoNo { background-color: #ff9191; }
+div.creadoOk { background-color: #6ed25a; }
+div.sectionLeft, div.sectionRight {
+	width: 238px;
+	float: left;
+}
+div.sectionLeft { margin-left: 112px; } div.sectionRight { margin-right: 112px; }
+
+input.section, select.section, textarea.section {
+	width: 228px;
+	font-size: 12px;
+	font-family: 'PT Sans', sans-serif;
+	color: #424242;
+	padding: 7px 10px;
+	margin-bottom: 10px;
+	border: 1px solid #e6e6e6;
+}
+
+select.section { width: 250px; }
+
+textarea.section { height: 80px; }
+
+.sectionBoton {
+	width: 120px;
+	font-size: 12px;
+	font-family: 'PT Sans', sans-serif;
+	color: #424242;
+	padding: 10px;
+	border: 0;
+	background-color: #e6e6e6;	
+}
+.sectionBoton:hover {
+	background-color: #424242;
+	color: #FFF;
+	cursor: pointer;
+}
+
+/* jQuery Nota de venta */
+.overlay {
+    display: none;
+	z-index: 10000;
+ 	width: 450px;
+    min-height: 400px;
+    border: 1px solid #CCC;
+    padding: 10px;
+    background: #FFF;
+}
+
+img.over:hover { cursor: pointer; }
+
+.overlay .close {
+    background-image:url(../images/closeQuery.png);
+    position:absolute;
+    right:-24px;
+    top:-24px;
+    cursor:pointer;
+    height:48px;
+    width:48px;
+}
+
+div.sepOver { height: 1px; margin: 10px 0; background: #424242; width: 450px; }
+
+textarea#wysiwy{
+	width: 248px 
+}

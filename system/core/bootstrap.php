@@ -61,12 +61,29 @@ class bootstrap{
     
     public static function run(request $peticion){
         
+        $modulo = $peticion->getModulo();
         $controller = $peticion->getControlador() . "Controller";
-        $rutaControlador = PATH . "system/controllers" . DS . $controller . ".php";
+        //$rutaControlador = PATH . "system/controllers" . DS . $controller . ".php";
         
         $metodo = $peticion->getMetodo();
         $args=$peticion->getArgs();
         
+
+        if($modulo){
+            $rutaModulo = PATH . 'system/controllers' . DS . $modulo . 'Controller.php';
+            
+            if(is_readable($rutaModulo)){
+                require_once $rutaModulo;
+                $rutaControlador = PATH . 'modules'. DS . $modulo . DS . 'controllers' . DS . $controller . '.php';
+            }
+            else{
+                
+                throw new Exception('Error de base de modulo');
+            }
+        }
+        else{
+            $rutaControlador = PATH . 'system/controllers' . DS . $controller . '.php';
+        }
         
         
         if( is_readable($rutaControlador) ){//si existe el archivo y es legible
@@ -101,13 +118,13 @@ class bootstrap{
             
             
             
-            if(isset($args)){
+            if(isset($args) and count($args)>0){
             
                 call_user_func_array(array($controller,$metodo),array($args));
                 
                 
             }else{
-                
+               
                 call_user_func(array($controller,$metodo));
             }
             

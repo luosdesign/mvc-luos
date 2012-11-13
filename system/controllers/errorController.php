@@ -52,6 +52,7 @@ class errorController extends Controller{
         $error['2020']='Ups Error de vista';
         $error['1010']='Ups Error de modelo';
         $error['3030']='Ups Error de controlador';
+        $error['3003']='Estamos en mantenimiento';
         if( array_key_exists($codigo,$error) ){
             
             return $error[$codigo];

@@ -8,14 +8,14 @@
  |  @class config	
  |	@version 1.0
  |	@access Dont Touch This File
- |	@copyright LuosDesign.com - 2012
+ |	@copyright Licencia GNU LuosDesign.com - 2012
  |	@Author: luosdesign@gmail.com
 
 
     #=================================================================
     # Licencia:
     #   framework para el desarrollo rapido de aplicaciones
-    #   Copyright (C) 2011  Luosdesign.com
+    #   Licencia GNU 2011  Luosdesign.com
     #
     #   Este programa es software libre: usted puede redistribuirlo y/o modificarlo 
     #   bajo los términos de la Licencia Pública General GNU publicada 
@@ -57,28 +57,32 @@
     
     **/
 
+date_default_timezone_set("America/Bogota");
 
-define("DEFAULT_CONTROLLER","users");
-define("DEFAULT_LAYOUT","design");
-define("BASE_URL","http://localhost:8080/mvc_luos_campeonato/");
+define("DEFAULT_LAYOUT","alva");
+define("ADMIN_LAYOUT","admin");
+define("MODULES_APP",serialize(array('usuarios')));
+define("BASE_URL","http://localhost:8080/tuapp/");
 define("BASE_URL_LIBS",BASE_URL."system/libs/");
 define("WEBFILE","webfile");
 define("WEBFILE_IMAGES","webfile/images/");
 
 
-define("APP_NAME","mvc luos campeonato");
-define("PREFIX_SESSION","mvc_");
-define("EMAIL_COMPANY","oscalber22@gmail.com");
-define("APP_SLOGAN","Diseño, Desarrollo y Aprendizaje Autodidacta");
-define("APP_COMPANY","www.luosdesign.com");
+define("APP_NAME","alva");
+define("PREFIX_SESSION","app_");
+define("EMAIL_COMPANY","");
+define("APP_SLOGAN","tu slogan");
+define("APP_COMPANY","");
 define('SESSION_TIME', '30');
-define('LOAD_CONTROLLER', 'users/index');
-define('ADMIN_LAYOUT', 'admin');
+define('LOAD_CONTROLLER', 'portada/index');
+define("ADMIN_CONTROLLER","admcar");
+define('REDIRECT_LOAD_CONTROLLER', '0');//yes:1,no:0
+
 
 define("DB_HOST","localhost");
-define("DB_USER","root");
-define("DB_PASS","");
-define("DB_NAME","mvc_campeonato");
+define("DB_USER","db_user");
+define("DB_PASS","db_pass");
+define("DB_NAME","db_name");
 define("DB_TYPE","mysql");
 define("DB_CHAR","utf8");
 define("DB_PORT","80");

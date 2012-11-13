@@ -37,8 +37,8 @@ class valid_form{
     }
     
     public function mandatory($value){
-        
-        if(empty($value) or $value=="0"){
+        $value=str_replace(" ", "" , $value);
+        if(empty($value) or $value=="0" or $value==" "){
             return false;
         }else{
             return true;

@@ -60,10 +60,12 @@
 abstract class controller{//abstract para que no pueda ser instanciada
     
     protected $_view;
+    protected $_request;
     
     public function __construct(){
         
-        $this->_view=new view(new request);
+        $this->_request = new Request();
+        $this->_view = new View($this->_request);
         
     }
     abstract public function index();
@@ -75,24 +77,35 @@ abstract class controller{//abstract para que no pueda ser instanciada
      |          
      |          
      **/
-    protected function loadModel($modelo){
+    protected function loadModel($modelo, $modulo = false){
         
-        $modelo=$modelo . 'Model';
-        $rutaModelo=PATH . "system/models" . DS . $modelo . ".php";
+
+        $modelo = $modelo . 'Model';
+        $rutaModelo = PATH . 'system/models' . DS . $modelo . '.php';
+        
+        if(!$modulo){
+            $modulo = $this->_request->getModulo();
+        }
+        
+        if($modulo){
+           if($modulo != 'default'){
+               $rutaModelo = PATH . 'modules' . DS . $modulo . DS . 'models' . DS . $modelo . '.php';
+           } 
+        }
         
         if(is_readable($rutaModelo)){
-            
             require_once $rutaModelo;
-            
-            $model=new $modelo;
-            
-            return $model;
-            
-        }else{
-            
-            //throw new Exception("Error de modelo");
-            $this->redirect('error/access/1010');
+            $modelo = new $modelo;
+            return $modelo;
         }
+        else {
+            echo $rutaModelo;
+            //throw new Exception('Error de modelo');
+             $this->redirect('error/access/1010');
+        }
+
+
+        
         
     }
     /**
@@ -238,6 +251,25 @@ abstract class controller{//abstract para que no pueda ser instanciada
     public function redirect($route=false){
         if($route){
             header("Location: ". BASE_URL . $route . '.html');
+            exit();
+        }else{
+            header("Location: ". BASE_URL);
+            exit(); 
+        }
+        
+    }
+
+    /**
+     | @function: redirect
+     | @access: protected
+     | @param:
+     |          $ruta:$route to redirect, route contoller/metod
+     |          
+     |          
+     **/
+    public function redirectSin($route=false){
+        if($route){
+            header("Location: ". BASE_URL . $route );
             exit();
         }else{
             header("Location: ". BASE_URL);

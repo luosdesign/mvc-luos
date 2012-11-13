@@ -81,7 +81,7 @@ class session{
      | @definition:verifies variables to session
      |          
      **/
-    public static function get( $clave  ){
+    public static function get( $clave ){
         
         if(isset($_SESSION[PREFIX_SESSION.$clave]))
             return $_SESSION[PREFIX_SESSION.$clave];

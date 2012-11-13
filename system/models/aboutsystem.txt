@@ -1,0 +1,18 @@
+/**
+ |-------------------------------------
+ |	File aboutwebfile BASE FILE		  |
+ |-------------------------------------
+ |	
+ |	@File aboutwebfile.txt
+ |      
+ |	@version 1.0
+ |	
+ |	@license gpl LuosDesign.com - 2012
+ |  @definition: 
+ |
+ |
+ |here you will find the core of the MVC and also in this directory will create the views, controllers and models  |in their respective directories already created, please driver error and model error does not erase it.
+ |
+ |
+ |aqui encontraras el core del MVC y ademas en este directorio crearas las vistas, controladores y modelos en sus  |respectivos directorios ya creados, porfavor el controlador error y modelo error no borrarlo.
+**/

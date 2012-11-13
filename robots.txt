@@ -1,0 +1,12 @@
+User-agent:*
+Disallow:/layout/
+Disallow:/system/
+Disallow:/webfile/
+
+
+
+
+
+
+
+

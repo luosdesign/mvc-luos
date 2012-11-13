@@ -62,9 +62,25 @@ class view{
    private $_js;
    
    public function __construct(request $peticion){
-    
-    $this->_controlador=$peticion->getControlador();
-    $this->_js=array();
+
+
+        //parent::__construct();
+        $this->_request = $peticion;
+        $this->_js = array();
+        $this->_rutas = array();
+        
+        $modulo = $this->_request->getModulo();
+        $this->_controlador = $this->_request->getControlador();
+        
+        if($modulo){
+            $this->_rutas['view'] = PATH . 'modules' . DS . $modulo . DS . 'views' . DS . $this->_controlador . DS;
+            $this->_rutas['js'] = BASE_URL . 'modules/' . $modulo . '/views/' . $this->_controlador . '/js/';
+        }
+        else{
+            $this->_rutas['view'] = PATH . 'system/views' . DS . $this->_controlador . DS;
+            $this->_rutas['js'] = BASE_URL . 'system/views/' . $this->_controlador . '/js/';
+        }
+
    } 
     /**
      | @function: render
@@ -78,6 +94,15 @@ class view{
      **/
    public function render($vista, $item=array(),$fileJ=array(),$fileC=array()){
         
+        if($this->_controlador==ADMIN_CONTROLLER or $this->_controlador=="users"){
+
+            $layoutFinal=ADMIN_LAYOUT;
+
+        }else{
+
+            $layoutFinal=DEFAULT_LAYOUT;
+        }
+
         $menu=array(
             array(
                 "id"=>"inicio",
@@ -111,11 +136,11 @@ class view{
          | @definition:render parameters in view          
          **/
              $_layoutParams= array(
-                "ruta_general"=>BASE_URL . "layout/" . DEFAULT_LAYOUT . "/",
-                "ruta_css"=>BASE_URL . "layout/" . DEFAULT_LAYOUT . "/css/",
-                "ruta_img"=>BASE_URL . "layout/" . DEFAULT_LAYOUT . "/images/",
+                "ruta_general"=>BASE_URL . "layout/" . $layoutFinal . "/",
+                "ruta_css"=>BASE_URL . "layout/" . $layoutFinal . "/css/",
+                "ruta_img"=>BASE_URL . "layout/" . $layoutFinal . "/images/",
                 "ruta_img_admin"=>BASE_URL .WEBFILE. "/img/",
-                "ruta_js"=>BASE_URL . "layout/" . DEFAULT_LAYOUT . "/js/",
+                "ruta_js"=>BASE_URL . "layout/" . $layoutFinal . "/js/",
                 "ruta_webfile"=>BASE_URL,
                 "menu"=>$menu,
                 "js"=>$js,
@@ -133,12 +158,14 @@ class view{
          |          
          | @definition:render files js in view         
          **/
+         
             if( !empty( $fileJ ) ){
+
                 $fileJs=null;
                 foreach( $fileJ as $key=>$value ){
                 
                     
-                    $fileJs.="<script type='text/javascript' src='". BASE_URL . "layout" . DS . DEFAULT_LAYOUT . DS . $value ."'></script>";
+                    $fileJs.="<script type='text/javascript' src='". BASE_URL . "layout" . DS . $layoutFinal . DS . $value ."'></script>";
                     
                 }
                     
@@ -156,7 +183,7 @@ class view{
                 $fileCss=null;
                 foreach( $fileC as $key=>$value ){
                     
-                    $fileCss.="<link type='text/css' rel='stylesheet' href='". BASE_URL . "layout" . DS . DEFAULT_LAYOUT . DS . $value ."' /> ";
+                    $fileCss.="<link type='text/css' rel='stylesheet' href='". BASE_URL . "layout" . DS . $layoutFinal . DS . $value ."' /> ";
                     
                     
                 }
@@ -166,31 +193,26 @@ class view{
             
                     
             if($vista=="error"):
+
             $rutaView=PATH . "system/views" . DS . "error" . DS . $vista . ".phtml";
             else:
+
             $rutaView=PATH . "system/views" . DS . $this->_controlador . DS . $vista . ".phtml";
             endif;
         
-        
             
+          
         
             if( is_readable($rutaView) ){
+                
                
-               if($this->_controlador!=ADMIN_LAYOUT){
+              
                 
-                include_once PATH . "layout" . DS . DEFAULT_LAYOUT . DS . "header.php";
+                include_once PATH . "layout" . DS . $layoutFinal . DS . "header.php";
                 include_once $rutaView;
-                include_once PATH . "layout" . DS . DEFAULT_LAYOUT . DS . "footer.php";
+                include_once PATH . "layout" . DS . $layoutFinal . DS . "footer.php";
                
-               }else{
-                
-                include_once PATH . "layout" . DS . ADMIN_LAYOUT . DS . "header.php";
-                include_once $rutaView;
-                include_once PATH . "layout" . DS . ADMIN_LAYOUT . DS . "footer.php";
-                
-               }
-                
-                
+              
                 
             
            }else{

@@ -57,7 +57,7 @@
     
     
     **/
-class model{
+class Model{
     
     protected $_db;
     protected $_typeBd;
@@ -101,7 +101,7 @@ class model{
             foreach( $where as $key=>$value ){
                 
                 if($security==true){
-                    $sql.=' ' . $this->clean( $key ).'\''.$this->clean( $value ).'\''; 
+                    $sql.=' ' . $this->clean( $key ).$this->clean( $value ); 
                            
                  }else{
                     $sql.=' ' . ( $key ). '\''. ( $value ).'\'';
@@ -290,7 +290,7 @@ class model{
 	       
 	    $sql = substr_replace( $sql,'UPDATE `'.$this->clean( $table ).'` SET',0, $count );
        
-       
+       //echo $sql;
                       
 	  if( $this ->_db->query( $sql ) == true ){
 
